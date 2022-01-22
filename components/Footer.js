@@ -31,7 +31,7 @@ const navigation = [
           </div>
           <br />
           <div className=" md:order-1">
-            <p className="text-center text-base text-gray-400 ">&copy; 2022 Jose's Fun API. All rights reserved.</p>
+            <p className="text-center text-base text-gray-400 ">&copy; 2022 Jose&apos;s Fun API. All rights reserved.</p>
           </div>
         </div>
       </footer>

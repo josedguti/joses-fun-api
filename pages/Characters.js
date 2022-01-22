@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import Loading from "../components/Loading";
 import AccessDenied from "../components/AccessDenied";
 import Pagination from "../components/Pagination";
+import Image from "next/image";
 
 const Characters = () => {
   const { status } = useSession();
@@ -52,22 +53,22 @@ const Characters = () => {
         onNext={onNext}
       />
       <br />
-      <div class="flex justify-center relative">
+      <div className="flex justify-center relative">
         <input
           type="text"
-          class="bg-white shadow rounded border-0 p-3"
+          className="bg-white shadow rounded border-0 p-3"
           placeholder="Search character..."
           onChange={(event) => {
             setSearchTerm(event.target.value);
           }}
         />
-        <div class="absolute pin-r pin-t mt-3 mr-4 text-purple-lighter"></div>
+        <div className="absolute pin-r pin-t mt-3 mr-4 text-purple-lighter"></div>
       </div>
       <br />
       <br />
       <section className="flex flex-wrap justify-center">
-        <div class="container">
-          <div class="flex flex-wrap justify-center">
+        <div className="container">
+          <div className="flex flex-wrap justify-center">
             {characters
               .filter((item) => {
                 if (searchTerm === "") {
@@ -80,19 +81,28 @@ const Characters = () => {
                 return false;
               })
               .map((item, index) => (
-                <div class="justify-center text-center w-64 mx-3">
-                  <div class="bg-zinc-800 rounded-lg overflow-hidden mb-10">
-                    <img src={item.image} class="rounded-t-lg" />
-                    <div class="mt-5 pb-8 text-center">
+                <div
+                  key={index}
+                  className="justify-center text-center w-64 mx-3"
+                >
+                  <div className="bg-zinc-800 rounded-lg overflow-hidden mb-10">
+                    <Image
+                      width={400}
+                      height={400}
+                      src={item.image}
+                      className="rounded-t-lg"
+                      alt="rick and morty photos"
+                    />
+                    <div className="mt-5 pb-8 text-center">
                       <h3 className="font-semibold text-gray-400">
                         {item.name}
                       </h3>
                       <br />
-                      <p class="text-base text-body-color mb-5 text-gray-400">
+                      <p className="text-base text-body-color mb-5 text-gray-400">
                         Gender: {item.gender} - Specie: {item.species} - Status:
                         {item.status}
                       </p>
-                      <p class="text-base text-body-color text-gray-400">
+                      <p className="text-base text-body-color text-gray-400">
                         {item.location.name}
                       </p>
                     </div>
