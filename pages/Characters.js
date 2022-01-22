@@ -44,7 +44,7 @@ const Characters = () => {
   }
 
   return (
-    <div className="pb-20">
+    <div className="mb-8">
       <Pagination
         prev={info.prev}
         next={info.next}
@@ -89,7 +89,7 @@ const Characters = () => {
                       </h3>
                       <br />
                       <p class="text-base text-body-color mb-5 text-gray-400">
-                        Gender: {item.gender} - Specie: {item.species} - Status:{" "}
+                        Gender: {item.gender} - Specie: {item.species} - Status:
                         {item.status}
                       </p>
                       <p class="text-base text-body-color text-gray-400">
