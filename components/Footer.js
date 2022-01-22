@@ -20,17 +20,17 @@ const navigation = [
   export default function Footer() {
     return (
       <footer className="bg-zinc-800 fixed inset-x-0 bottom-0 ">
-        <div className="flex justify-end max-w-7xl py-3 px-4 sm:px-6 md:flex md:items-center">
-          <div className="w-64 space-x-7 ">
+        <div className="flex justify-center py-2 ">
+          <div className="w-64 space-x-7 md:order-1">
             {navigation.map((item) => (
               <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
                 <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <item.icon className="h-6 w-6 ml-10" aria-hidden="true" />
               </a>
             ))}
           </div>
           <br />
-          <div className=" md:order-1">
+          <div className="mr-20">
             <p className="text-center text-base text-gray-400 ">&copy; 2022 Jose&apos;s Fun API. All rights reserved.</p>
           </div>
         </div>
