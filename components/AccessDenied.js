@@ -6,13 +6,13 @@ function AccessDenied() {
   return (
     <>
       <div className="flex justify-center text-center mt-10">
-        <div className="rounded-md bg-red-50 p-4">
+        <div className="rounded-md bg-red-50/70 p-4">
           <div className="flex">
             <div className="ml-3">
-              <h3 className="text-2xl font-bold text-red-800">
+              <h3 className="text-2xl font-bold text-red-700">
                 Access Denied
               </h3>
-              <p className="text-sm font-medium text-red-800 mt-2">
+              <p className="text-base font-medium text-red-700 mt-2">
                 Sorry, but you can&apos;t continue without Signing In.
               </p>
             </div>

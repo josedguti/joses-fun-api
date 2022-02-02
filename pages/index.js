@@ -1,9 +1,13 @@
 import React from "react";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
+import Loading from "../components/Loading";
 
 export default function Home() {
-  const { data: session } = useSession();
+  const { status, data: session } = useSession();
+
+  if(status === 'loading')
+  return <Loading />
 
   return (
     <>
