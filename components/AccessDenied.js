@@ -1,23 +1,35 @@
 import React from "react";
 import { signIn } from "next-auth/react";
+
+
 function AccessDenied() {
   return (
-    <div className="text-center mt-10">
-      <p className="text-2xl">
-        Access Denied
-        </p>
-        <p className="text-2xl">
-        Sign In to see the content.
-        </p>
+    <>
+      <div className="flex justify-center text-center mt-10">
+        <div className="rounded-md bg-red-50 p-4">
+          <div className="flex">
+            <div className="ml-3">
+              <h3 className="text-2xl font-bold text-red-800">
+                Access Denied
+              </h3>
+              <p className="text-sm font-medium text-red-800 mt-2">
+                Sorry, but you can&apos;t continue without Signing In.
+              </p>
+            </div>
+          </div>
+        </div>
         <br />
-      <button
-        onClick={() => signIn("github")}
-        type="button"
-        className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-      >
-        Sign In with GitHub
-      </button>
-    </div>
+      </div>
+      <div className="flex justify-center mt-5">
+        <button 
+        onClick={() => signIn()}
+        className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800">
+          <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            Sign In
+          </span>
+        </button>
+      </div>
+    </>
   );
 }
 
