@@ -6,6 +6,8 @@ import Pagination from "../components/Pagination";
 import Image from "next/image";
 import Modal from "../components/Modal";
 
+
+
 const Characters = () => {
   const { status } = useSession();
   const [characters, setCharacters] = useState([]);
@@ -18,9 +20,8 @@ const Characters = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setCharacters(data.results);
+        setCharacters(data.results)
         setInfo(data.info);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   };
@@ -111,7 +112,7 @@ const Characters = () => {
                       </div>
                     </div>
                   </div>
-                ))}
+              ))}
             </div>
           </div>
         </section>
