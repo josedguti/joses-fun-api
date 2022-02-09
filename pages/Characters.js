@@ -6,8 +6,6 @@ import Pagination from "../components/Pagination";
 import Image from "next/image";
 import Modal from "../components/Modal";
 
-
-
 const Characters = () => {
   const { status } = useSession();
   const [characters, setCharacters] = useState([]);
