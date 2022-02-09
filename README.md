@@ -1,7 +1,7 @@
 # Jose's Fun API! 😝
 
 
-## 🔌 Check out the live project [HERE](https://joses-fun-api-josedguti.vercel.app/)
+## 🔌 Check out the live project [HERE](https://joses-fun-api.vercel.app/)
 
 
 ## 📷 Screenshots
