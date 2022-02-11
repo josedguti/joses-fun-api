@@ -46,7 +46,7 @@ const Characters = () => {
 
   return (
     <>
-      <div className="mb-8">
+      <div className="pb-20">
         <Pagination
           prev={info.prev}
           next={info.next}
