@@ -10,7 +10,7 @@ export default function Home() {
   return <Loading />
 
   return (
-    <>
+    <div className="pb-40">
       <br />
       <br />
       <div className="text-center">
@@ -40,6 +40,6 @@ export default function Home() {
           </span>
         </button>
       </div>
-    </>
+    </div>
   );
 }
