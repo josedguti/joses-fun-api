@@ -37,13 +37,13 @@ const Characters = () => {
     getCharacters(API);
   }, []);
 
-  if (status === "loading") {
-    return <Loading />;
-  }
+  // if (status === "loading") {
+  //   return <Loading />;
+  // }
 
-  if (status === "unauthenticated") {
-    return <AccessDenied />;
-  }
+  // if (status === "unauthenticated") {
+  //   return <AccessDenied />;
+  // }
 
   return (
     <>
