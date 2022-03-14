@@ -30,7 +30,7 @@ const navigation = [
         ))}
       </div>
       <div className="mt-2 md:mt-0 md:order-1">
-        <p className="text-center text-base text-white text-sm font-medium">&copy; 2022 Jose&apos;s Fun API. All rights reserved.</p>
+        <p className="text-center text-base text-white text-sm font-medium">&copy; {new Date().getFullYear()} Jose&apos;s Fun API. All rights reserved.</p>
       </div>
     </div>
   </footer>
