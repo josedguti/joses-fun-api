@@ -5,37 +5,47 @@ import AccessDenied from "../components/AccessDenied";
 import Pagination from "../components/Pagination";
 import Image from "next/image";
 import Modal from "../components/Modal";
+import { useQuery } from 'react-query'
+import axios from 'axios'
 
 const Characters = () => {
   const { status } = useSession();
-  const [characters, setCharacters] = useState([]);
+  // const [characters, setCharacters] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [info, setInfo] = useState({});
+  // const [info, setInfo] = useState({});
 
   const API = "https://rickandmortyapi.com/api/character/";
 
-  const getCharacters = (url) => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setCharacters(data.results);
-        setInfo(data.info);
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  };
+  const { isLoading, error, data } = useQuery('characters', () => axios(API))
+  
+
+  if (error) return <h1>Error: {error.message}, try again!</h1>;
+  if (isLoading) return <h1>Loading...</h1>
+
+  // const getCharacters = (url) => {
+  //   fetch(url)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setCharacters(data.results);
+  //       setInfo(data.info);
+  //       console.log(data);
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
+
+  console.log(data)
 
   const onPrevious = () => {
-    getCharacters(info.prev);
+    data.data.info.prev;
   };
 
   const onNext = () => {
-    getCharacters(info.next);
+    data.data.info.next;
   };
 
-  useEffect(() => {
-    getCharacters(API);
-  }, []);
+  // useEffect(() => {
+  //   getCharacters(API);
+  // }, []);
 
   // if (status === "loading") {
   //   return <Loading />;
@@ -49,8 +59,8 @@ const Characters = () => {
     <>
       <div className="mb-8">
         <Pagination
-          prev={info.prev}
-          next={info.next}
+          prev={data.data.info.prev}
+          next={data.data.info.next}
           onPrevious={onPrevious}
           onNext={onNext}
         />
@@ -71,7 +81,7 @@ const Characters = () => {
         <section className="flex flex-wrap justify-center">
           <div className="container">
             <div className="flex flex-wrap justify-center">
-              {characters
+              {data.data.results
                 .filter((item) => {
                   if (searchTerm === "") {
                     return item;
