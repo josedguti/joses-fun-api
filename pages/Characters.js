@@ -5,6 +5,8 @@ import AccessDenied from "../components/AccessDenied";
 import Pagination from "../components/Pagination";
 import Image from "next/image";
 import Modal from "../components/Modal";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Characters = () => {
   const { status } = useSession();
@@ -18,7 +20,7 @@ const Characters = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        setCharacters(data.results)
+        setCharacters(data.results);
         setInfo(data.info);
       })
       .catch((error) => console.log(error));
@@ -44,8 +46,33 @@ const Characters = () => {
     return <AccessDenied />;
   }
 
+  if (!session) {
+    toast.warn("You need to sign in!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "success1",
+    });
+  } else if (session) {
+    toast.success("You are logged in!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "success2",
+    });
+  }
+
   return (
     <>
+      <ToastContainer />
       <div className="pb-20">
         <Pagination
           prev={info.prev}
@@ -110,7 +137,7 @@ const Characters = () => {
                       </div>
                     </div>
                   </div>
-              ))}
+                ))}
             </div>
           </div>
         </section>

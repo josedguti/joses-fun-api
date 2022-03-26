@@ -2,15 +2,41 @@ import React from "react";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Loading from "../components/Loading";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const { status, data: session } = useSession();
 
-  if(status === 'loading')
-  return <Loading />
+  if (status === "loading") return <Loading />;
+
+  if (!session) {
+    toast.warn("You need to sign in!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "success1",
+    });
+  } else if (session) {
+    toast.success("You are logged in!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "success2",
+    });
+  }
 
   return (
     <div className="pb-40">
+      <ToastContainer />
       <br />
       <br />
       <div className="text-center">
