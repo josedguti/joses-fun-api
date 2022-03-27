@@ -73,7 +73,7 @@ const Characters = () => {
   return (
     <>
       <div className="pb-20">
-      <ToastContainer />
+      <ToastContainer limit={1}/>
         <Pagination
           prev={info.prev}
           next={info.next}
