@@ -21,7 +21,7 @@ function Nav() {
     <meta name="description" content="Create your projects and add requirements" />
     <link rel="slingshot" href="/favicon.ico" />
   </Head>
-    <Disclosure as="nav" className="bg-zinc-800 shadow">
+    <Disclosure as="nav" className="bg-transparent">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
